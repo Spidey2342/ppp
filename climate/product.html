@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product.css">
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="shortcut icon" href="images/Happy_Earth_Cartoon_Illustration_Showing_Thumbs_Up_Planet_Clipart_Design__Earth_Clipart__Happy_Clipart__Cartoon_Clipart_PNG_Transparent_Image_and_Clipart_for_Free_Download-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="shortcut icon" href="images/Happy_Earth_Cartoon_Illustration_Showing_Thumbs_Up_Planet_Clipart_Design__Earth_Clipart__Happy_Clipart__Cartoon_Clipart_PNG_Transparent_Image_and_Clipart_for_Free_Download-removebg-preview.png" type="image/x-icon">
+    <title>Pulse shop</title>
+</head>
+<body>
+    <header class="sidebar">
+        <div class="sidebar-image" onclick="Hidesidebar()"><img src="images/close.png" alt=""></div>
+        <nav>
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="study.html">LEARN</a></li>
+                <li><a href="quiz.html">QUIZ</a></li>
+            </ul>
+        </nav>
+        <button onclick="window.location.href='join.html'" class="btn">JOIN US</button>
+    </header>
+    <header>
+        <div class="logo"><a href="index.html">PLANET PULSE</a></div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="study.html">LEARN</a></li>
+                <li><a href="quiz.html">QUIZ</a></li>
+
+            </ul>
+        </nav>
+        <div class="contain cart">
+            <div class="cart cart-image relative p-2 text-blue-900 hover:text-blue-700">
+                <img src="images/grocery-store.png" alt="">
+                <span id="cart-count" class="absolute -top-1 -right-1 bg-blue-700 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center cart">0</span>
+            </div>
+            
+        <button onclick="window.location.href='join.html'" class="btn main-nav">JOIN US</button>
+        <div class="header-image" onclick="Showsidebar()">
+            <img src="images/more.png" alt="">
+        </div>
+              </div>
+               <div class="contain-dropdown bg-white rounded-lg shadow-xl p-4 mt-2">
+                            <h3 class="font-bold text-lg mb-2 text-blue-900">Your Cart</h3>
+                            <div id="cart-items" class="max-h-60 overflow-y-auto">
+                                <p class="text-gray-500 text-center py-4">Your cart is empty</p>
+                            </div>
+                            <div class="border-t mt-3 pt-3">
+                                <div class="flex justify-between font-bold text-blue-900">
+                                    <span>Total:</span>
+                                    <span id="cart-total">GHS 0.00</span>
+                                </div>
+                                <button id="checkout-btn" class="w-full mt-3 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition duration-300">
+                                    Checkout
+                                </button>
+                            </div>
+                        </div>
+    </header>
+    <section class="small-head">
+        <h1>Buy Green. Live Clean.</h1>
+    </section>
+      <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-blue-900 mb-12">Featured Products</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md product-card transition duration-300">
+                    <div class="relative">
+                        <img src="images/35beb3a4-7535-4de5-819d-5e8d45bdcb2c.jpeg" alt="Reusable Water Bottles" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-yellow-400 text-blue-900 text-xs font-bold px-2 py-1 rounded-full">NEW</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2 text-blue-900">Reusable Water Bottles</h3>
+                        <p class="text-gray-600 mb-3">Eco-friendly alternative to plastic bottles</p>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-bold text-blue-900">GHS 70.00</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="buy-now flex-1 bg-green-600 hover:bg-green-700 text-white py-1 px-3 rounded-full transition duration-300" 
+                                    data-name="Reusable Water Bottles" 
+                                    data-price="70.00" 
+                                    data-image="images/35beb3a4-7535-4de5-819d-5e8d45bdcb2c.jpeg">
+                                Buy Now
+                            </button>
+                            <button class="add-to-cart flex-1 bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded-full transition duration-300" 
+                                    data-name="Reusable Water Bottles" 
+                                    data-price="70.00" 
+                                    data-image="images/35beb3a4-7535-4de5-819d-5e8d45bdcb2c.jpeg">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md product-card transition duration-300">
+                    <img src="images/Bamboo Toothbrush 5pcs  _ Sustainable Biodegradable Handle _ Soft Nylon Bristles _ Eco Travel Toothbrush _ Green Dental Care.jpeg" alt="Bamboo Tooth brush" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2 text-blue-900">Bamboo toothbrush</h3>
+                        <p class="text-gray-600 mb-3">Eco-friendly alternative to plastic brushes</p>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-bold text-blue-900">GHS 35.00</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="buy-now flex-1 bg-green-600 hover:bg-green-700 text-white py-1 px-3 rounded-full transition duration-300" 
+                                    data-name="Bamboo Toothbrush" 
+                                    data-price="34.00" 
+                                    data-image="images/Bamboo Toothbrush 5pcs  _ Sustainable Biodegradable Handle _ Soft Nylon Bristles _ Eco Travel Toothbrush _ Green Dental Care.jpeg">
+                                Buy Now
+                            </button>
+                            <button class="add-to-cart flex-1 bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded-full transition duration-300" 
+                                    data-name="Bamboo Toothbrush" 
+                                    data-price="34.00" 
+                                    data-image="images/Bamboo Toothbrush 5pcs  _ Sustainable Biodegradable Handle _ Soft Nylon Bristles _ Eco Travel Toothbrush _ Green Dental Care.jpeg">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md product-card transition duration-300">
+                    <div class="relative">
+                        <img src="images/Sengu Bamboo Wooden Solar Calculators Standard Function Desktop Calculator with 12-digit Large Display.jpeg" alt="Stainless Steel Straws" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-yellow-400 text-blue-900 text-xs font-bold px-2 py-1 rounded-full">BESTSELLER</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2 text-blue-900">Bamboo Calculator</h3>
+                        <p class="text-gray-600 mb-3">Get the best ec0-friendly calculator</p>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-bold text-blue-900">GHS 90.00</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="buy-now flex-1 bg-green-600 hover:bg-green-700 text-white py-1 px-3 rounded-full transition duration-300" 
+                                    data-name="Bamboo Calculator" 
+                                    data-price="90.00" 
+                                    data-image="images/Sengu Bamboo Wooden Solar Calculators Standard Function Desktop Calculator with 12-digit Large Display.jpeg">
+                                Buy Now
+                            </button>
+                            <button class="add-to-cart flex-1 bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded-full transition duration-300" 
+                                    data-name="Bamboo Calculator" 
+                                    data-price="90.00" 
+                                    data-image="images/Sengu Bamboo Wooden Solar Calculators Standard Function Desktop Calculator with 12-digit Large Display.jpeg">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md product-card transition duration-300">
+                    <img src="images/Elevate your audio experience while upholding an….jpeg" alt="Beeswax Food Wraps" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2 text-blue-900">Bamboo Earbuds</h3>
+                        <p class="text-gray-600 mb-3">Gain the best listening experience from nature</p>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-bold text-blue-900">GHS 105.00</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="buy-now flex-1 bg-green-600 hover:bg-green-700 text-white py-1 px-3 rounded-full transition duration-300" 
+                                    data-name="Bamboo Earbuds" 
+                                    data-price="105.00" 
+                                    data-image="images/Elevate your audio experience while upholding an….jpeg">
+                                Buy Now
+                            </button>
+                            <button class="add-to-cart flex-1 bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded-full transition duration-300" 
+                                    data-name="Bamboo Earbuds" 
+                                    data-price="105.00" 
+                                    data-image="images/Elevate your audio experience while upholding an….jpeg">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+      <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md product-card transition duration-300">
+                    <div class="relative">
+                        <img src="images/PRICES MAY VARY_ DOUBLE-WIRE SPIRAL BINDING….jpeg" alt="Notebooks from Recycled Paper" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-yellow-400 text-blue-900 text-xs font-bold px-2 py-1 rounded-full">NEW</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2 text-blue-900">Notebooks from Recycled Paper</h3>
+                        <p class="text-gray-600 mb-3">Notebooks from Recycled Paper</p>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-bold text-blue-900">GHS 94.00</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="buy-now flex-1 bg-green-600 hover:bg-green-700 text-white py-1 px-3 rounded-full transition duration-300" 
+                                    data-name="Notebooks from Recycled Paper" 
+                                    data-price="94.00" 
+                                    data-image="images/PRICES MAY VARY_ DOUBLE-WIRE SPIRAL BINDING….jpeg">
+                                Buy Now
+                            </button>
+                            <button class="add-to-cart flex-1 bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded-full transition duration-300" 
+                                    data-name="Notebooks from Recycled Paper" 
+                                    data-price="94.00" 
+                                    data-image="images/PRICES MAY VARY_ DOUBLE-WIRE SPIRAL BINDING….jpeg">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md product-card transition duration-300">
+                    <img src="images/12pcs(2pack of 6)_24pc recycled kraft paper….jpg" alt="Reusable Shopping Bag" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2 text-blue-900">Plantable paper pen</h3>
+                        <p class="text-gray-600 mb-3">Use the best nature products</p>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-bold text-blue-900">GHS 30.00</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="buy-now flex-1 bg-green-600 hover:bg-green-700 text-white py-1 px-3 rounded-full transition duration-300" 
+                                    data-name="Plantable paper pen" 
+                                    data-price="30.00" 
+                                    data-image="images/12pcs(2pack of 6)_24pc recycled kraft paper….jpg">
+                                Buy Now
+                            </button>
+                            <button class="add-to-cart flex-1 bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded-full transition duration-300" 
+                                    data-name="Plantable paper pen" 
+                                    data-price="30.00" 
+                                    data-image="images/12pcs(2pack of 6)_24pc recycled kraft paper….jpg">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md product-card transition duration-300">
+                    <div class="relative">
+                        <img src="images/226f5957-2982-4d52-9e31-0cfd32331c19.jpeg" alt="Stainless Steel Straws" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-yellow-400 text-blue-900 text-xs font-bold px-2 py-1 rounded-full">BESTSELLER</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2 text-blue-900">Bamboo Sunglasses</h3>
+                        <p class="text-gray-600 mb-3">See through Nature</p>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-bold text-blue-900">GHS 44.00</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="buy-now flex-1 bg-green-600 hover:bg-green-700 text-white py-1 px-3 rounded-full transition duration-300" 
+                                    data-name="Bamboo Sunglasses" 
+                                    data-price="44.00" 
+                                    data-image="images/226f5957-2982-4d52-9e31-0cfd32331c19.jpeg">
+                                Buy Now
+                            </button>
+                            <button class="add-to-cart flex-1 bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded-full transition duration-300" 
+                                    data-name="Bamboo Sunglasses" 
+                                    data-price="44.00" 
+                                    data-image="images/226f5957-2982-4d52-9e31-0cfd32331c19.jpeg">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md product-card transition duration-300">
+                    <img src="images/Plastic-free floss that's biodegradable and vegan….jpeg" alt="Beeswax Food Wraps" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2 text-blue-900">Bamboo Floss</h3>
+                        <p class="text-gray-600 mb-3">Clean the teeth with nature's floss.</p>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-bold text-blue-900">GHS 10.00</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="buy-now flex-1 bg-green-600 hover:bg-green-700 text-white py-1 px-3 rounded-full transition duration-300" 
+                                    data-name="Bamboo Floss" 
+                                    data-price="10.00" 
+                                    data-image="images/Plastic-free floss that's biodegradable and vegan….jpeg">
+                                Buy Now
+                            </button>
+                            <button class="add-to-cart flex-1 bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded-full transition duration-300" 
+                                    data-name="Bamboo Floss" 
+                                    data-price="10.00" 
+                                    data-image="images/Plastic-free floss that's biodegradable and vegan….jpeg">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ <footer>
+        <div class="footer">
+            <div class="link1">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>  
+                    <li><a href="study.html">LEARN</a></li>  
+                    <li><a href="quiz.html">QUIZ</a></li>  
+                    <li><a href="">PRODUCTS</a></li>  
+
+
+                </ul>
+            </div>
+            <div class="link2">
+                DI BTECH PROJECT
+            </div>
+            <div class="link3">
+                <p>&copy 2025 Planet-Pulse. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+   
+
+
+
+
+     <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content bg-white rounded-lg shadow-xl max-w-md mx-auto my-12 p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-blue-900">Complete Your Purchase</h3>
+                <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="mb-6">
+                <h4 class="font-medium text-blue-900 mb-2">Order Summary</h4>
+                <div id="checkout-items" class="max-h-48 overflow-y-auto mb-3 border-b pb-3">
+                    <!-- Cart items will be inserted here -->
+                </div>
+                <div class="flex justify-between font-bold text-blue-900">
+                    <span>Total:</span>
+                    <span id="checkout-total">GHS 0.00</span>
+                </div>
+            </div>
+            
+            <form id="checkout-form">
+                <div class="mb-4">
+                    <label for="name" class="block text-blue-900 mb-2">Full Name</label>
+                    <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="phone" class="block text-blue-900 mb-2">Phone Number</label>
+                    <input type="tel" id="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="address" class="block text-blue-900 mb-2">Delivery Address</label>
+                    <textarea id="address" rows="3" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-blue-900 mb-2">Payment Method</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="payment-option bg-blue-50 rounded-lg p-3 cursor-pointer border-2 border-transparent hover:border-blue-500">
+                            <input type="radio" name="payment" value="mtn" class="mr-2" checked>
+                            <div class="flex items-center">
+                                <img src="images/e3c0ed2f-5961-4f0a-86d3-23982575d12f.jpg" alt="MTN" class="h-6 mr-2">
+                                MTN Mobile Money
+                            </div>
+                        </label>
+                        
+                        <label class="payment-option bg-blue-50 rounded-lg p-3 cursor-pointer border-2 border-transparent hover:border-blue-500">
+                            <input type="radio" name="payment" value="vodafone" class="mr-2">
+                            <div class="flex items-center">
+                                <img src="images/Telecel Zimbabwe Logo PNG Vector (CDR) Free Download.jpg" alt="Telecel" class="h-6 mr-2">
+                                Telecel Cash
+                            </div>
+                        </label>
+                        
+                        <label class="payment-option bg-blue-50 rounded-lg p-3 cursor-pointer border-2 border-transparent hover:border-blue-500">
+                            <input type="radio" name="payment" value="airteltigo" class="mr-2">
+                            <div class="flex items-center">
+                                <img src="images/Airtel Money Uganda Logo PNG Vector (PDF) Free Download.jpg" alt="AirtelTigo" class="h-6 mr-2">
+                                AirtelTigo Money
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                    Complete Payment
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content bg-white rounded-lg shadow-xl max-w-md mx-auto my-12 p-6 text-center">
+            <div class="mb-4">
+                <i class="fas fa-check-circle text-green-500 text-5xl mb-4"></i>
+                <h3 class="text-xl font-bold text-blue-900 mb-2">Order Successful!</h3>
+                <p class="text-gray-700 mb-4">Thank you for your purchase. A payment request has been sent to your mobile number.</p>
+                <p class="text-gray-700 mb-6">Your order will be delivered within 3-5 business days.</p>
+            </div>
+            <button id="close-success-modal" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300">
+                Continue Shopping
+            </button>
+        </div>
+    </div>
+ <script src="product.js">
+       
+    </script>
+    
+</body>
+</html>

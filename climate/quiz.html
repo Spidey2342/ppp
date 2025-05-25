@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="quiz.css">
+    <link rel="stylesheet" href="images/Happy_Earth_Cartoon_Illustration_Showing_Thumbs_Up_Planet_Clipart_Design__Earth_Clipart__Happy_Clipart__Cartoon_Clipart_PNG_Transparent_Image_and_Clipart_for_Free_Download-removebg-preview.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLANET PULSE</title>
+</head>
+
+<body>
+    <header class="sidebar">
+        <div class="sidebar-image" onclick="Hidesidebar()"><img src="images/close.png" alt=""></div>
+        <nav>
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="study.html">LEARN</a></li>
+                <li><a href="product.html">PRODUCT</a></li>
+            </ul>
+        </nav>
+        <button onclick="window.location.href='join.html'" class="btn">JOIN US</button>
+    </header>
+    <header>
+        <div class="logo"><a href="index.html">PLANET PULSE</a></div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="study.html">LEARN</a></li>
+                <li><a href="product.html">PRODUCT</a></li>
+            </ul>
+        </nav>
+        <button onclick="window.location.href='join.html'" class="btn main-nav">JOIN US</button>
+        <div class="header-image" onclick="Showsidebar()">
+            <img src="images/more.png" alt="">
+        </div>
+    </header>
+    <section class="quiz">
+        <div class="quiz-flex">
+            <div class="quiz-text">
+                <h1>Challenge Your <br>
+                    Knowledge</h1>
+                <p>Test your knowledge and discover how much you really know about climate change. Ready to <br>
+                     challenge
+                    yourself and make learning fun?</p>
+                <button class="btn-quiz" onclick="window.location.href ='quiz-page.html'">LETS PLAY</button>
+            </div>
+            <div class="quiz-image">'
+                <img src="images/Fundo_roxo_com_palavra_de_teste_e_pessoas_coloridas___Vetor_Grátis-removebg-preview.png" alt="">
+            </div>
+        </div>
+    </section>
+<script>
+        function Showsidebar(){
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'flex'
+        }
+        function Hidesidebar(){
+            const sidebar = document.querySelector('.sidebar')
+                sidebar.style.display = 'none'
+            
+        } 
+    </script>
+</body>
+
+</html>

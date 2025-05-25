@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css">
+    <link rel="shortcut icon" href="images/Happy_Earth_Cartoon_Illustration_Showing_Thumbs_Up_Planet_Clipart_Design__Earth_Clipart__Happy_Clipart__Cartoon_Clipart_PNG_Transparent_Image_and_Clipart_for_Free_Download-removebg-preview.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="sidebar">
+        <div class="sidebar-image" onclick="Hidesidebar()"><img src="images/close.png" alt=""></div>
+        <nav>
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="study.html">LEARN</a></li>
+                <li><a href="product.html">PRODUCT</a></li>
+            </ul>
+        </nav>
+        <button onclick="window.location.href='join.html'" class="btn">JOIN US</button>
+    </header>
+    <header>
+        <div class="logo"><a href="index.html">PLANET PULSE</a></div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="study.html">LEARN</a></li>
+                <li><a href="product.html">PRODUCT</a></li>
+            </ul>
+        </nav>
+        <button onclick="window.location.href='join.html'" class="btn main-nav">JOIN US</button>
+        <div class="header-image" onclick="Showsidebar()">
+            <img src="images/more.png" alt="">
+        </div>
+    </header>
+
+    <section class="climate">
+        <h1>CLIMATE CHANGE</h1>
+
+        <div class="heading">
+            <div class="head-image">
+
+                <img src="images/a_colorful_and_eng_image_.png" alt="">
+            </div>
+            <div class="head-text">
+                <p>Climate change means the Earth’s weather and temperatures are changing over a long time. While this
+                    can happen naturally, today it's mostly caused by humans burning things like coal, oil, and gas.
+                    <br>
+
+                    These fuels release greenhouse gases (like carbon dioxide and methane), which trap heat in the
+                    atmosphere — kind of like a giant blanket around the Earth. This makes the planet warmer. <br>
+
+                    Driving cars, cutting down trees, farming, and running factories all add to the problem. Big
+                    contributors include energy use, transportation, buildings, and agriculture.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="climate-cause">
+        <div class="cause-flex">
+            <div class="cause-head">
+                <h4>CAUSES OF CLIMATE CHANGE</h4>
+                <img src="images/right-arrow.png" alt="">
+            </div>
+            <div class="cause-text">
+                <p> <span> 1. Burning Fossil Fuels: <br></span>
+
+                    When we burn coal, oil, or gas to power cars, homes, and factories, it releases carbon dioxide (CO₂)
+                    and other greenhouse gases into the atmosphere. These gases trap heat from the sun, warming the
+                    Earth like a blanket.</p>
+                <p> <span>2. Deforestation (Cutting Down Trees): <br></span>
+
+                    Trees naturally absorb CO₂, which helps keep the atmosphere balanced. But when we cut down forests
+                    for wood, farming, or buildings, that carbon is released — and fewer trees are left to clean the
+                    air.</p>
+                <p> <span>3. Agriculture and Animal Farming: <br></span>
+
+                    Farming animals, especially cows and sheep, releases methane, a greenhouse gas that’s even more
+                    powerful than CO₂. Growing crops also emits gases through fertilizers and soil use.</p>
+                <p>
+                   <span> 4. Industry and Manufacturing: <br></span>
+
+                    Factories that make things like cement, steel, plastic, and clothes use a lot of energy and often
+                    release greenhouse gases. The more we consume, the more emissions are produced.
+                </p>
+                <p>
+                   <span> 5. Transportation: <br></span>
+
+                    Cars, buses, trucks, airplanes, and ships mostly run on fossil fuels. They emit a lot of CO₂ —
+                    especially when used often or inefficiently.
+                </p>
+                <p>
+                   <span> 6. Energy Use in Buildings: <br></span>
+                  
+                    Heating, cooling, lighting, and powering our homes and buildings — especially with coal, oil, or gas
+                    — adds significantly to emissions. Using energy-efficient systems or solar power helps reduce the
+                    impact.
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    
+
+<section class="yes-review">
+
+    <h1>WHAT ARE YOUR THOUGHTS ON THIS LESSON?</h1>
+ <div class="comment-input-area">
+        <label for="name-input">Your Name:</label>
+        <input type="text" id="name-input" placeholder="Enter your name">
+        <label for="comment-input">Your Comment:</label>
+        <textarea id="comment-input" rows="5" placeholder="Enter your comment"></textarea>
+        <div class="rating-area">
+            <h3>Rate your experience:</h3>
+            <div class="comment-rating-stars">
+                <span class="star-rating" data-rating="1">&#9734;</span>
+                <span class="star-rating" data-rating="2">&#9734;</span>
+                <span class="star-rating" data-rating="3">&#9734;</span>
+                <span class="star-rating" data-rating="4">&#9734;</span>
+                <span class="star-rating" data-rating="5">&#9734;</span>
+            </div>
+            <p class="rating-message"></p>
+        </div>
+        <button id="submit-comment">Post Comment</button>
+    </div>
+
+    <div id="comments-container">
+        </div>
+
+
+
+
+</section>
+
+
+
+    <footer>
+        <div class="footer">
+            <div class="link1">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="study.html">LEARN</a></li>
+                    <li><a href="quiz.html">QUIZ</a></li>
+                    <li><a href="product.html">PRODUCTS</a></li>
+
+
+                </ul>
+            </div>
+            <div class="link2">
+                DI BTECH PROJECT
+            </div>
+            <div class="link3">
+                <p>&copy 2025 Planet-Pulse. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        function Showsidebar() {
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'flex'
+        }
+        function Hidesidebar() {
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'none'
+
+        } 
+          document.addEventListener('DOMContentLoaded', () => {
+            const nameInput = document.getElementById('name-input');
+            const commentInput = document.getElementById('comment-input');
+            const submitButton = document.getElementById('submit-comment');
+            const commentsContainer = document.getElementById('comments-container');
+            const ratingStarsContainer = document.querySelector('.comment-rating-stars');
+            const ratingStars = document.querySelectorAll('.comment-rating-stars .star-rating');
+            const ratingMessage = document.querySelector('.rating-message');
+            let currentRating = 0;
+            let hasRated = false;
+
+            // Rating within the comment form
+            ratingStars.forEach(star => {
+                star.addEventListener('click', function() {
+                    const ratingValue = parseInt(this.getAttribute('data-rating'));
+                    currentRating = ratingValue;
+                    ratingMessage.textContent = `You rated your experience ${currentRating} stars!`;
+                    highlightStars(currentRating);
+                    hasRated = true;
+                });
+
+                star.addEventListener('mouseover', function() {
+                    highlightStars(parseInt(this.getAttribute('data-rating')));
+                });
+
+                star.addEventListener('mouseout', function() {
+                    highlightStars(currentRating);
+                });
+            });
+
+            function highlightStars(rating) {
+                ratingStars.forEach(star => {
+                    if (parseInt(star.getAttribute('data-rating')) <= rating) {
+                        star.classList.add('rated');
+                        star.textContent = '★';
+                    } else {
+                        star.classList.remove('rated');
+                        star.textContent = '☆';
+                    }
+                });
+            }
+
+            highlightStars(currentRating); // Initialize
+
+            submitButton.addEventListener('click', () => {
+                const name = nameInput.value.trim();
+                const commentText = commentInput.value.trim();
+
+                if (name && commentText && hasRated) {
+                    addCommentToPage(name, commentText, currentRating);
+                    nameInput.value = '';
+                    commentInput.value = '';
+                    currentRating = 0;
+                    hasRated = false;
+                    highlightStars(currentRating);
+                    ratingMessage.textContent = '';
+                } else if (!hasRated) {
+                    alert('Please rate your experience before posting your comment.');
+                } else {
+                    alert('Please enter your name and comment.');
+                }
+            });
+
+            function addCommentToPage(name, comment, rating) {
+                const commentCard = document.createElement('div');
+                commentCard.classList.add('comment-card');
+
+                const profilePicture = document.createElement('div');
+                profilePicture.classList.add('profile-picture');
+                const firstLetter = name.charAt(0).toUpperCase();
+                profilePicture.textContent = firstLetter;
+                profilePicture.style.backgroundColor = getRandomColor();
+
+                const commentContent = document.createElement('div');
+                commentContent.classList.add('comment-content');
+
+                const userInfo = document.createElement('div');
+                userInfo.classList.add('user-info');
+                const userName = document.createElement('div');
+                userName.classList.add('user-name');
+                userName.textContent = name;
+                userInfo.appendChild(userName);
+
+                const commentTextElement = document.createElement('p');
+                commentTextElement.classList.add('comment-text');
+                commentTextElement.textContent = comment;
+
+                const commentRating = document.createElement('div');
+                commentRating.classList.add('comment-rating');
+                commentRating.textContent = 'Rated: ';
+                for (let i = 0; i < rating; i++) {
+                    commentRating.innerHTML += '<span aria-label="Star" role="img">★</span>';
+                }
+                for (let i = rating; i < 5; i++) {
+                    commentRating.innerHTML += '<span aria-label="Outline Star" role="img">☆</span>';
+                }
+
+                commentContent.appendChild(userInfo);
+                commentContent.appendChild(commentTextElement);
+                commentContent.appendChild(commentRating);
+
+                commentCard.appendChild(profilePicture);
+                commentCard.appendChild(commentContent);
+
+                commentsContainer.prepend(commentCard);
+            }
+
+            function getRandomColor() {
+                const letters = '0123456789ABCDEF';
+                let color = '#';
+                for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+        });
+
+    </script>
+</body>
+
+</html>

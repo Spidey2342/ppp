@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="join.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/Happy_Earth_Cartoon_Illustration_Showing_Thumbs_Up_Planet_Clipart_Design__Earth_Clipart__Happy_Clipart__Cartoon_Clipart_PNG_Transparent_Image_and_Clipart_for_Free_Download-removebg-preview.png" type="image/x-icon">
+     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="sidebar">
+        <div class="sidebar-image" onclick="Hidesidebar()"><img src="images/close.png" alt=""></div>
+        <nav>
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="study.html">LEARN</a></li>
+                <li><a href="product.html">PRODUCT</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+    <header>
+        <div class="logo"><a href="index.html">PLANET PULSE</a></div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="study.html">LEARN</a></li>
+                <li><a href="product.html">PRODUCT</a></li>
+            </ul>
+        </nav>
+      
+        <div class="header-image" onclick="Showsidebar()">
+            <img src="images/more.png" alt="">
+        </div>
+    </header>
+
+    <section class="join-contact text-center mb-16">
+   <h1 class="text-4xl font-bold text-indigo-800 mb-4">Pulse Contact</h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Get in touch with us. Give us feedback and join our activities.
+            </p>
+            
+       
+            <button onclick="openContactPopup()" class="mt-8 gradient-bg hover:opacity-90 text-white font-medium px-8 py-3 rounded-full shadow-lg transition-all transform hover:scale-105">
+                <i class="fas fa-envelope mr-2"></i> Contact Our Team
+            </button>
+    </section>
+
+     <div id="contactPopup" class="popup-overlay">
+        <div class="absolute inset-0 bg-black bg-opacity-50" onclick="closeContactPopup()"></div>
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="popup-content">
+                <div class="p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-indigo-800">Contact Us</h3>
+                            <p class="text-gray-500 text-sm">We're here to help with your learning journey</p>
+                        </div>
+                        <button onclick="closeContactPopup()" class="text-gray-400 hover:text-gray-600 transition">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    
+                    <form id="contactForm" class="space-y-4">
+                        <div>
+                            <label for="contactName" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                            <input type="text" id="contactName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="First and last name" required>
+                        </div>
+                        
+                        <div>
+                            <label for="contactEmail" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="contactEmail" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="your@email.com" required>
+                        </div>
+                        
+                        
+                        
+                        <div>
+                            <label for="contactMessage" class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
+                            <textarea id="contactMessage" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Tell us how we can help..." required></textarea>
+                        </div>
+                        
+                        <div class="pt-2">
+                            <button type="submit" class="w-full gradient-bg hover:opacity-90 text-white font-medium py-3 px-4 rounded-lg transition flex items-center justify-center">
+                                <i class="fas fa-paper-plane mr-2"></i> Send Message
+                            </button>
+                        </div>
+                    </form>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+      <section class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center text-blue-800 mb-12">Get Involved</h2>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Activity 1 -->
+            <div class="activity-card bg-white rounded-xl overflow-hidden shadow-md">
+                <div class="h-48 bg-blue-600 flex items-center justify-center">
+                    <i class="fas fa-recycle text-white text-6xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Waste Warriors</h3>
+                    <p class="text-gray-600 mb-4">
+                        Join our recycling initiative and learn how to reduce waste in your community.
+                    </p>
+                    <button onclick="openActivityPopup('Waste Warriors')" class="w-full btn-yellow hover:bg-yellow-600 text-white font-medium py-2 px-4 rounded-lg transition">
+                        Sign Up
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Activity 2 -->
+            <div class="activity-card bg-white rounded-xl overflow-hidden shadow-md">
+                <div class="h-48 bg-blue-700 flex items-center justify-center">
+                    <i class="fas fa-seedling text-white text-6xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Tree Planting</h3>
+                    <p class="text-gray-600 mb-4">
+                        Participate in our monthly tree planting events and help combat deforestation.
+                    </p>
+                    <button onclick="openActivityPopup('Tree Planting')" class="w-full btn-yellow hover:bg-yellow-600 text-white font-medium py-2 px-4 rounded-lg transition">
+                        Sign Up
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Activity 3 -->
+            <div class="activity-card bg-white rounded-xl overflow-hidden shadow-md">
+                <div class="h-48 bg-blue-800 flex items-center justify-center">
+                    <i class="fas fa-bullhorn text-white text-6xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Climate Advocacy</h3>
+                    <p class="text-gray-600 mb-4">
+                        Learn how to effectively advocate for climate policies in your school and community.
+                    </p>
+                    <button onclick="openActivityPopup('Climate Advocacy')" class="w-full btn-yellow hover:bg-yellow-600 text-white font-medium py-2 px-4 rounded-lg transition">
+                        Sign Up
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+     <div id="activityPopup" class="popup-overlay">
+        <div class="absolute inset-0 bg-black bg-opacity-50" onclick="closeActivityPopup()"></div>
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="popup-content">
+                <div class="p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-blue-800" id="activityTitle">Join Our Activity</h3>
+                            <p class="text-gray-500 text-sm">Make a difference for our planet</p>
+                        </div>
+                        <button onclick="closeActivityPopup()" class="text-gray-400 hover:text-gray-600 transition">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    
+                    <form id="activityForm" class="space-y-4">
+                        <input type="hidden" id="activityName">
+                        
+                        <div>
+                            <label for="activityUserName" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                            <input type="text" id="activityUserName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="First and last name" required>
+                        </div>
+                        
+                        <div>
+                            <label for="activityUserEmail" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="activityUserEmail" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="your@email.com" required>
+                        </div>
+                        
+                        <div>
+                            <label for="activityUserAge" class="block text-sm font-medium text-gray-700 mb-1">Your Age</label>
+                            <input type="number" id="activityUserAge" min="13" max="19" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="13-19" required>
+                        </div>
+                        
+                        <div>
+                            <label for="activityUserLocation" class="block text-sm font-medium text-gray-700 mb-1">Your Location (City)</label>
+                            <input type="text" id="activityUserLocation" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Where are you joining from?" required>
+                        </div>
+                        
+
+                        <div>
+                            <label for="activityUserWhy" class="block text-sm font-medium text-gray-700 mb-1">Why do you want to join this activity?</label>
+                            <textarea id="activityUserWhy" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Tell us what motivates you" required></textarea>
+                        </div>
+                        
+                        <div class="pt-2">
+                            <button type="submit" class="w-full btn-yellow hover:bg-yellow-600 text-white font-medium py-3 px-4 rounded-lg transition flex items-center justify-center">
+                                <i class="fas fa-check-circle mr-2"></i> Sign Up
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+    <!-- Success Message Popup -->
+    <div id="successPopup" class="popup-overlay">
+        <div class="absolute inset-0 bg-black bg-opacity-50" onclick="closeSuccessPopup()"></div>
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="popup-content">
+                <div class="p-8 text-center">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-check text-green-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Message Sent!</h3>
+                    <p class="text-gray-600 mb-6">Thanks for reaching out! Our team will get back to you within 24 hours.</p>
+                    <button onclick="closeSuccessPopup()" class="bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded-lg transition">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <div class="link1">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="study.html">LEARN</a></li>
+                    <li><a href="quiz.html">QUIZ</a></li>
+                    <li><a href="product.html">PRODUCTS</a></li>
+
+
+                </ul>
+            </div>
+            <div class="link2">
+                DI BTECH PROJECT
+            </div>
+            <div class="link3">
+                <p>&copy 2025 Planet-Pulse. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <script>
+         function Showsidebar() {
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'flex'
+        }
+        function Hidesidebar() {
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'none'
+
+        } 
+        // Contact Popup Functions
+        function openContactPopup() {
+            document.getElementById('contactPopup').style.display = 'block';
+            document.body.classList.add('popup-open');
+        }
+        
+        function closeContactPopup() {
+            document.getElementById('contactPopup').style.display = 'none';
+            document.body.classList.remove('popup-open');
+        }
+        
+        // Success Popup Functions
+        function openSuccessPopup() {
+            document.getElementById('successPopup').style.display = 'block';
+            document.body.classList.add('popup-open');
+        }
+        
+        function closeSuccessPopup() {
+            document.getElementById('successPopup').style.display = 'none';
+            document.body.classList.remove('popup-open');
+        }
+
+        //activity
+         function openActivityPopup(activityName = '') {
+            const popup = document.getElementById('activityPopup');
+            const title = document.getElementById('activityTitle');
+            const nameField = document.getElementById('activityName');
+            
+            if (activityName) {
+                title.textContent = `Join ${activityName}`;
+                nameField.value = activityName;
+            }
+            
+            popup.style.display = 'block';
+            document.body.classList.add('popup-open');
+        }
+        
+        function closeActivityPopup() {
+            document.getElementById('activityPopup').style.display = 'none';
+            document.body.classList.remove('popup-open');
+        }
+        
+        
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            closeContactPopup();
+            openSuccessPopup();
+            this.reset();
+        });
+        
+        // Close popups with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeContactPopup();
+                closeSuccessPopup();
+            }
+        });
+    </script>
+</body>
+</html>

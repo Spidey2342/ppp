@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+:root{
+    --first-color:#2196F3;
+    --second-color:#FFF176;
+    --third-color:#9E8E00;
+    --fourth-color:#407CAC;
+    --fifth-color:#A5D6A7;
+    --sixth-color:#407CAC;
+    --answer-color1:#36FF62;
+    --answer-color2:#DFD263;
+    --answer-color3:#F64D4D;
+}
+body{
+    background: linear-gradient(rgba(0, 0, 0, 0.836),rgba(0, 0, 0, 0.721),rgba(0, 0, 0, 0.516)), url(images/istockphoto-1342229191-612x612.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.heading{
+    height: auto;
+    
+}
+header{
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.logo{
+    color: white;
+    font-size: 35px;
+    font-weight:700 ;
+    font-family: "Luckiest Guy", cursive;
+  
+}
+.btn{
+    height: 40px;
+    width: 120px;
+    border: none;
+    border-radius: 10px;
+    background: var(--first-color);
+    color: white;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+}
+.btn:hover{
+    transform: scale(0.96);
+}
+.btn:active{
+    transform: scale(0.96);
+}
+.text{
+    height: 50vh;
+    padding: 0 0 0 5vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.text-2{
+ h1{
+        color: white;
+        font-weight: 700;
+        font-size: 70px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-bottom:5px;
+        letter-spacing: 2px;
+        animation: text 2s 1;
+        
+    }
+}
+.text-1{
+   
+    h4{
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1.2em;
+        font-weight: 600;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        position: relative;
+
+    }
+
+ 
+}
+
+.btn2{
+    height: 42px;
+    width: 140px;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    font-weight: 400;
+    background: var(--third-color);
+    margin-left: 30px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.btn2:hover{
+    transform: scale(0.96);
+}
+.btn2:active{
+    transform: scale(0.96);
+}
+.image img{
+    height: 250px;
+}
+
+
+@media screen and (max-width:768px) {
+    .text-1 h1{
+        font-size: 30px;
+    }
+    .text-1 h2{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width:488px) {
+    .logo{
+        font-size: 30px;
+    }
+    .text{
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    .btn2{
+        margin-left: 0;
+    }
+    .text-1{
+        margin-bottom: 30px;
+    }
+}

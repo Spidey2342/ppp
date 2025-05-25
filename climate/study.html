@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="study.css">
+    <link rel="shortcut icon" href="images/Happy_Earth_Cartoon_Illustration_Showing_Thumbs_Up_Planet_Clipart_Design__Earth_Clipart__Happy_Clipart__Cartoon_Clipart_PNG_Transparent_Image_and_Clipart_for_Free_Download-removebg-preview.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLANET PULSE(STUDY)</title>
+</head>
+
+<body>
+    <header class="sidebar">
+        <div class="sidebar-image" onclick="Hidesidebar()"><img src="images/close.png" alt=""></div>
+        <nav>
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="study.html">LEARN</a></li>
+                <li><a href="product.html">PRODUCT</a></li>
+            </ul>
+        </nav>
+        <button onclick="window.location.href='join.html'" class="btn">JOIN US</button>
+    </header>
+    <header>
+        <div class="logo"><a href="index.html">PLANET PULSE</a></div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="study.html">LEARN</a></li>
+                <li><a href="product.html">PRODUCT</a></li>
+            </ul>
+        </nav>
+        <button onclick="window.location.href='join.html'" class="btn main-nav">JOIN US</button>
+        <div class="header-image" onclick="Showsidebar()">
+            <img src="images/more.png" alt="">
+        </div>
+    </header>
+    <section class="card">
+        <div class="cards">
+            <div class="learn yellow">
+                <div class="flex ">
+                    <div class="flex-me yellow-1">
+                        <div class="flex-you yellow-2">
+<img src="images/book.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="text">
+                    <h4>ABOUT</h4>
+                    <p>Learn about climate change and Its <br>
+causes</p>
+                    <button class="btn3" onclick="window.location.href ='about.html'">
+                        Continue Learning
+                    </button>
+                </div>
+            </div>
+            <div class="learn blue">
+                <div class="flex">
+                    <div class="flex-me blue-1">
+                        <div class="flex-you blue-2">
+<img src="images/leaf.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="text">
+                    <h4>EFFECTS</h4>
+                    <p>Learn about  the effects of climate <br>
+change</p>
+                    <button class="btn3" onclick="window.location.href='effects.html'">
+                        Continue Learning
+                    </button>
+                </div>
+            </div>
+            <div class="learn green">
+                <div class="flex">
+                    <div class="flex-me green-1">
+                        <div class="flex-you green-2">
+<img src="images/idea.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="text">
+                    <h4>SOLUTIONS</h4>
+                    <p>Learn about the solutions of climate <br>
+change</p>
+                    <button class="btn3" onclick="window.location.href ='solution.html'">
+                        Continue Learning
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer">
+            <div class="link1">
+                <ul>
+                    <li><a href="home.html">HOME</a></li>  
+                    <li><a href="study.html">LEARN</a></li>  
+                    <li><a href="quiz.html">QUIZ</a></li>  
+                    <li><a href="product.html">PRODUCTS</a></li>  
+
+
+                </ul>
+            </div>
+            <div class="link2">
+               DI BTECH PROJECT
+            </div>
+            <div class="link3">
+                <p>&copy 2025 Planet-Pulse. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+     <script>
+        function Showsidebar(){
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'flex'
+        }
+        function Hidesidebar(){
+            const sidebar = document.querySelector('.sidebar')
+                sidebar.style.display = 'none'
+            
+        } 
+    </script>
+</body>
+
+</html>

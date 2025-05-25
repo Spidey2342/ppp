@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="sytles.css">
+    <link rel="shortcut icon" href="images/Happy_Earth_Cartoon_Illustration_Showing_Thumbs_Up_Planet_Clipart_Design__Earth_Clipart__Happy_Clipart__Cartoon_Clipart_PNG_Transparent_Image_and_Clipart_for_Free_Download-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .progress-bar {
+            height: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .question-card {
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .question-card.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .option:hover {
+            transform: translateY(-2px);
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            border-radius: 50%;
+            animation: fall 5s linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        .pulse {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .bounce {
+            animation: bounce 0.5s;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-15px);
+            }
+
+            60% {
+                transform: translateY(-7px);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 to-purple-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="sidebar">
+            <div class="sidebar-image" onclick="Hidesidebar()"><img src="images/close.png" alt=""></div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">HOME</a></li>
+                                       <li><a href="quiz.html">QUIZ</a></li>
+
+                    <li><a href="product.html">PRODUCTS</a></li>
+                </ul>
+            </nav>
+            <button onclick="window.location.href='join.html'" class="btn">JOIN US</button>
+        </header>
+        <header>
+            <div class="logo"><a href="index.html">PLANET PULSE</a></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="home.html">HOME</a></li>
+                    <li><a href="quiz.html">QUIZ</a></li>
+                    <li><a href="product.html">PRODUCTS</a></li>
+                </ul>
+            </nav>
+            <button onclick="window.location.href='join.html'" class="btn main-nav">JOIN US</button>
+            <div class="header-image" onclick="Showsidebar()">
+                <img src="images/more.png" alt="">
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Quiz Section -->
+            <div class="lg:w-2/3">
+                <div id="start-screen" class="bg-white rounded-xl shadow-lg p-8 text-center pulse">
+                    <h2 class="text-2xl font-bold text-blue-600 mb-4">Welcome to Planet-Pulse</h2>
+                    <p class="text-gray-600 mb-6">This quiz contains 20 random questions about how best you understand
+                        your climate. There might even be a cool price for you. ENJOY!</p>
+                    <div class="mb-6">
+                        <label for="username" class="block text-gray-700 mb-2">Enter your name:</label>
+                        <input type="text" id="username"
+                            class="w-full max-w-xs px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Your name">
+                    </div>
+                    <button id="start-btn"
+                        class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 bounce">
+                        Start Quiz <i class="fas fa-play ml-2"></i>
+                    </button>
+                </div>
+
+                <div id="quiz-container" class="hidden bg-white rounded-xl shadow-lg p-8">
+                    <!-- Timer and Progress -->
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="text-lg font-semibold text-gray-700">
+                            Question <span id="current-question">1</span>/<span id="total-questions">20</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-lg font-semibold text-gray-700 mr-2">Time:</span>
+                            <div id="timer" class="bg-blue-100 text-blue-800 font-bold px-3 py-1 rounded-full">
+                                10s
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div class="w-full bg-gray-200 rounded-full h-2.5 mb-8">
+                        <div id="progress" class="progress-bar bg-blue-600 rounded-full" style="width: 0%"></div>
+                    </div>
+
+                    <!-- Question Card -->
+                    <div id="question-container" class="question-card">
+                        <h2 id="question" class="text-xl font-bold text-gray-800 mb-6"></h2>
+                        <div id="options" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"></div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="flex justify-between">
+                        <button id="prev-btn"
+                            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded-lg transition duration-300 hidden">
+                            <i class="fas fa-arrow-left mr-2"></i> Previous
+                        </button>
+                        <button id="next-btn"
+                            class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 ml-auto">
+                            Next <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results Screen -->
+                <div id="results-screen" class="hidden bg-white rounded-xl shadow-lg p-8 text-center">
+                    <div id="confetti-container"></div>
+                    <h2 class="text-3xl font-bold text-blue-600 mb-4">Quiz Completed!</h2>
+                    <div class="flex justify-center mb-6">
+                        <div class="bg-blue-100 rounded-full w-24 h-24 flex items-center justify-center">
+                            <span id="score-percentage" class="text-3xl font-bold text-blue-600">0%</span>
+                        </div>
+                    </div>
+                    <p class="text-xl text-gray-700 mb-2">You scored <span id="score"
+                            class="font-bold text-blue-600">0</span> out of <span id="max-score"
+                            class="font-bold">20</span></p>
+                    <p id="result-message" class="text-lg text-gray-600 mb-6"></p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <button id="retry-btn"
+                            class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 mb-2 sm:mb-0">
+                            <i class="fas fa-redo mr-2"></i> Try Again
+                        </button>
+                        <button id="leaderboard-btn"
+                            class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300">
+                            <i class="fas fa-trophy mr-2"></i> Leaderboard
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leaderboard Section -->
+            <div class="lg:w-1/3">
+                <div class="bg-white rounded-xl shadow-lg p-6 sticky top-8">
+                    <h2 class="text-2xl font-bold text-blue-600 mb-4 flex items-center">
+                        <i class="fas fa-trophy mr-2 text-yellow-500"></i> Leaderboard
+                    </h2>
+                    <div id="leaderboard" class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-gray-100 rounded-lg">
+                            <div class="flex items-center">
+                                <span class="font-bold text-gray-700 mr-3">1.</span>
+                                <span class="font-semibold">Alex</span>
+                            </div>
+                            <span class="bg-blue-100 text-blue-800 font-bold px-3 py-1 rounded-full">18/20</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-100 rounded-lg">
+                            <div class="flex items-center">
+                                <span class="font-bold text-gray-700 mr-3">2.</span>
+                                <span class="font-semibold">Sam</span>
+                            </div>
+                            <span class="bg-blue-100 text-blue-800 font-bold px-3 py-1 rounded-full">16/20</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-100 rounded-lg">
+                            <div class="flex items-center">
+                                <span class="font-bold text-gray-700 mr-3">3.</span>
+                                <span class="font-semibold">Jordan</span>
+                            </div>
+                            <span class="bg-blue-100 text-blue-800 font-bold px-3 py-1 rounded-full">15/20</span>
+                        </div>
+                    </div>
+                    <p id="empty-leaderboard" class="text-gray-500 text-center py-4 hidden">No scores yet. Be the first!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz Questions (50 questions)
+        const questions = [
+            {
+                question: "What is climate change?",
+                options: ["A one-day weather event", "Long-term changes in temperature and weather", " Only about hotter summers", "A new season"],
+                answer: "Long-term changes in temperature and weather"
+            },
+            {
+                question: "What is the main cause of current climate change?",
+                options: ["Volcanoes", "Sunspots", "Human activities", "Moon phase"],
+                answer: "Human activities"
+            },
+            {
+                question: "Which gas is most responsible for global warming?",
+                options: ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"],
+                answer: "Carbon dioxide"
+            },
+            {
+                question: "What do greenhouse gases do?",
+                options: ["Cool the Earth", "Trap heat in the atmosphere", "Reflect sunlight back into space", "Create storms"],
+                answer: "Trap heat in the atmosphere"
+            },
+            {
+                question: "Which of these is a greenhouse gas?",
+                options: ["Helium", "Carbon dioxide", "Neon", "Oxygen"],
+                answer: "Carbon dioxide"
+            },
+            {
+                question: "Which activity increases carbon dioxide in the air?",
+                options: ["Planting trees", "Driving gasoline cars", "Walking", "Cycling"],
+                answer: "Driving gasoline cars"
+            },
+            {
+                question: "What does deforestation mean?",
+                options: ["Planting trees", "Cutting down trees", "Watering trees", "Saving trees"],
+                answer: "Cutting down trees"
+            },
+            {
+                question: "How does deforestation affect climate change?",
+                options: ["It helps cool the Earth", "It releases carbon dioxide", "It creates rain", "It reduces pollution"],
+                answer: "It releases carbon dioxide"
+            },
+            {
+                question: "Which is an effect of climate change?",
+                options: ["Stronger storms", "Cooler summers", "Fewer floods", "Less sunshine"],
+                answer: "Stronger storms"
+            },
+            {
+                question: "Which is a solution to climate change?",
+                options: ["Burning coal", "Using solar energy", "Using more plastic", "Cutting trees"],
+                answer: "Using solar energy"
+            },
+            {
+                question: "Which sector causes the most greenhouse gas emissions?",
+                options: ["Energy and transport", "Healthcare", "Education", "Fashion"],
+                answer: "Energy and transport"
+            },
+            {
+                question: "What does methane mainly come from?",
+                options: ["Cars", "Lakes", "Farming and animals", "Computers"],
+                answer: "Farming and animals"
+            },
+            {
+                question: "What is one way teens can help fight climate change?",
+                options: ["Use less electricity", "Drive cars more", "Cut trees", "Burn trash"],
+                answer: "Use less electricity"
+            },
+            {
+                question: "Why is planting trees good for the climate?",
+                options: ["They produce gas", "They block rain", "They absorb carbon dioxide", "They cool the sun"],
+                answer: "They absorb carbon dioxide"
+            },
+            {
+                question: "Which is a renewable energy source?",
+                options: ["Oil", "Coal", "Solar", "Gasoline"],
+                answer: "Solar"
+            },
+            {
+                question: "What happens when ice in the polar regions melts?",
+                options: ["Sea levels rise", "More animals are born", "Deserts grow", "Rain increases"],
+                answer: "Sea levels rise"
+            },
+            {
+                question: "What is global warming?",
+                options: ["The Earth getting colder", "The Earth getting hotter", "Seasonal change", "Weather for one day"],
+                answer: "The Earth getting hotter"
+            },
+            {
+                question: "Which everyday habit can reduce your carbon footprint?",
+                options: ["Recycling", "Using plastic bags", "Littering", "Driving everywhere"],
+                answer: "Recycling"
+            },
+            {
+                question: "Which is an eco-friendly product?",
+                options: ["Plastic straw", "Paper bag", "Gas stove", "Coal heater"],
+                answer: "Paper bag"
+            },
+            {
+                question: "What is one major effect of rising temperatures?",
+                options: ["Cooler winters", "Floods and droughts", "Smaller forests", "More fish"],
+                answer: "Smaller forests"
+            },
+            {
+                question: "What is a carbon footprint?",
+                options: ["Footprint on soil", "Amount of carbon emissions by a person", "Shoe brand", "Forest trail"],
+                answer: "Amount of carbon emissions by a person"
+            },
+            {
+                question: "Which energy source doesn't pollute?",
+                options: ["Coal", "Gasoline", "Wind", "Diesel"],
+                answer: "Wind"
+            },
+            {
+                question: "What happens when forests are cleared?",
+                options: ["CO2 is removed", "More oxygen", "CO2 is released", "Clouds form"],
+                answer: "CO2 is released"
+            },
+            {
+                question: "Why is sea level rising?",
+                options: ["Rivers flooding", "Tides changing", "Melting ice and glaciers", "Rainstorms"],
+                answer: "Melting ice and glaciers"
+            },
+            {
+                question: "What can schools do to help the climate?",
+                options: ["Burn trash", "Use solar panels", "Cut trees", "Buy more cars"],
+                answer: "Use solar panels"
+            },
+            {
+                question: "What is one effect of extreme heat?",
+                options: ["More snow", "Health problems", "Cleaner air", "Fewer wildfires"],
+                answer: "Health problems"
+            },
+            {
+                question: "Which of the following helps reduce emissions?",
+                options: ["Using coal", "Using electric cars", "Cutting forests", "Building factories"],
+                answer: "Using electric cars"
+            },
+            {
+                question: "What is the greenhouse effect?",
+                options: ["Sunlight bouncing off the Earth", "Heat trapped by gases in atmosphere", "Cold air rising", "Snow forming in deserts"],
+                answer: "Heat trapped by gases in atmosphere"
+            },
+            {
+                question: "What is climate action?",
+                options: ["Watching the weather", "Taking steps to fight climate change", "Ignoring pollution", "Only planting flowers"],
+                answer: "Taking steps to fight climate change"
+            },
+            {
+                question: "Which transportation causes the least pollution?",
+                options: ["Driving alone", "Carpooling", "Riding a bike", "Flying"],
+                answer: "Riding a bike"
+            },
+            {
+                question: "Why is saving electricity good for the environment?",
+                options: ["It costs more", "It increases emissions", "It reduces energy demand", "It creates heat"],
+                answer: "It reduces energy demand"
+            },
+            {
+                question: "Which country produces the most CO2 emissions?",
+                options: ["France", "Brazil", "China", "Ghana"],
+                answer: "China"
+            },
+            {
+                question: "How can food choices impact climate change?",
+                options: ["No effect at all", "Meat and dairy create more emissions", "Only water matters", "Plastic use increases"],
+                answer: "Meat and dairy create more emissions"
+            },
+            {
+                question: "Which waste is worst for the environment?",
+                options: ["Banana peels", "Paper", "Plastic", "Leaves"],
+                answer: "Plastic"
+            },
+            {
+                question: "What happens when weather becomes extreme?",
+                options: ["More stable seasons", "Floods and droughts", "Better farming", "Cooler summers"],
+                answer: "Floods and droughts"
+            },
+            {
+                question: "Which of these absorbs carbon dioxide?",
+                options: ["Roads", "Oceans", "Buildings", "Airplanes"],
+                answer: "Oceans"
+            },
+            {
+                question: "What is a climate-friendly habit?",
+                options: ["Throwing plastic", "Reusing bags", "Leaving lights on", "Using AC often"],
+                answer: "Reusing bags"
+            },
+            {
+                question: "Why are polar bears at risk?",
+                options: ["Too many penguins", "Melting ice habitat", "Too much snow", "Too many zoos"],
+                answer: "Melting ice habitat"
+            },
+            {
+                question: "What kind of products help reduce waste?",
+                options: ["Reusable", "Disposable", "Plastic-based", "Fossil fuels"],
+                answer: "Reusable"
+            },
+            {
+                question: "How can cities fight climate change?",
+                options: ["Build more roads", "Use clean energy", "Cut trees", "Burn waste"],
+                answer: "Use clean energy"
+            },
+            {
+                question: "What does rising sea level threaten?",
+                options: ["Mountains", "Beaches and cities", "Rainforests", "Deserts"],
+                answer: "Beaches and cities"
+            },
+            {
+                question: "How can tech help fight climate change?",
+                options: ["Create more pollution", "Invent clean energy", "Build gas cars", "Burn coal faster"],
+                answer: "Invent clean energy"
+            },
+            {
+                question: "What is one impact of more CO2 in oceans?",
+                options: ["Cleaner water", "Ocean acidification", "Less seaweed", "More oxygen"],
+                answer: "Ocean acidification"
+            },
+            {
+                question: "How can governments help stop climate change?",
+                options: ["Make stronger climate laws", "Burn more oil", "Ignore scientists", "Plant fewer trees"],
+                answer: "Make stronger climate laws"
+            },
+            {
+                question: "Which of these helps cool the planet?",
+                options: ["More concrete", "Cutting forests", "Growing trees", "Car pollution"],
+                answer: "Growing trees"
+            },
+            {
+                question: "What is the Paris Agreement about?",
+                options: ["Selling oil", "Protecting forests", "Fighting climate change worldwide", "Importing food"],
+                answer: "Fighting climate change worldwide"
+            }
+        ];
+        // DOM Elements
+        const startScreen = document.getElementById('start-screen');
+        const quizContainer = document.getElementById('quiz-container');
+        const resultsScreen = document.getElementById('results-screen');
+        const questionElement = document.getElementById('question');
+        const optionsElement = document.getElementById('options');
+        const currentQuestionElement = document.getElementById('current-question');
+        const totalQuestionsElement = document.getElementById('total-questions');
+        const progressElement = document.getElementById('progress');
+        const timerElement = document.getElementById('timer');
+        const scoreElement = document.getElementById('score');
+        const maxScoreElement = document.getElementById('max-score');
+        const scorePercentageElement = document.getElementById('score-percentage');
+        const resultMessageElement = document.getElementById('result-message');
+        const leaderboardElement = document.getElementById('leaderboard');
+        const emptyLeaderboardElement = document.getElementById('empty-leaderboard');
+        const startButton = document.getElementById('start-btn');
+        const nextButton = document.getElementById('next-btn');
+        const prevButton = document.getElementById('prev-btn');
+        const retryButton = document.getElementById('retry-btn');
+        const leaderboardButton = document.getElementById('leaderboard-btn');
+        const usernameInput = document.getElementById('username');
+        const confettiContainer = document.getElementById('confetti-container');
+        const questionContainer = document.getElementById('question-container');
+        // Quiz Variables
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let timer;
+        let timeLeft = 15;
+        let shuffledQuestions = [];
+        let selectedOptions = [];
+        let leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
+        // Initialize the quiz
+        function initQuiz() {
+            // Shuffle questions and select first 20
+            shuffledQuestions = [...questions].sort(() => Math.random() - 0.5).slice(0, 20);
+            totalQuestionsElement.textContent = shuffledQuestions.length;
+            currentQuestionIndex = 0;
+            score = 0;
+            selectedOptions = Array(shuffledQuestions.length).fill(null);
+
+            // Show first question
+            showQuestion();
+
+            // Update UI
+            startScreen.classList.add('hidden');
+            quizContainer.classList.remove('hidden');
+            resultsScreen.classList.add('hidden');
+
+            // Start timer
+            startTimer();
+        }
+        // Display current question
+        function showQuestion() {
+            // Remove active class first to reset animation
+            questionContainer.classList.remove('active');
+
+            // Force reflow to ensure animation reset
+            void questionContainer.offsetWidth;
+
+            const question = shuffledQuestions[currentQuestionIndex];
+            questionElement.textContent = question.question;
+
+            // Clear previous options
+            optionsElement.innerHTML = '';
+
+            // Shuffle options
+            const shuffledOptions = [...question.options].sort(() => Math.random() - 0.5);
+
+            // Create option buttons
+            shuffledOptions.forEach(option => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.className = 'option bg-gray-100 hover:bg-blue-100 text-gray-800 font-medium py-3 px-4 rounded-lg transition duration-300 border border-gray-200';
+
+                // Mark if this option was previously selected
+                if (selectedOptions[currentQuestionIndex] === option) {
+                    button.classList.add('bg-blue-100', 'border-blue-300');
+                }
+
+                button.addEventListener('click', () => selectOption(option));
+                optionsElement.appendChild(button);
+            });
+
+            // Update question counter
+            currentQuestionElement.textContent = currentQuestionIndex + 1;
+
+            // Update progress bar
+            progressElement.style.width = `${(currentQuestionIndex / shuffledQuestions.length) * 100}%`;
+
+            // Show/hide navigation buttons
+            prevButton.classList.toggle('hidden', currentQuestionIndex === 0);
+            nextButton.textContent = currentQuestionIndex === shuffledQuestions.length - 1 ? 'Submit' : 'Next';
+
+            // Reset timer for new question
+            resetTimer();
+
+            // Add active class to trigger animation
+            setTimeout(() => {
+                questionContainer.classList.add('active');
+            }, 10);
+        }
+        // Select an option
+        function selectOption(selectedOption) {
+            // Clear previous selection
+            const buttons = optionsElement.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.classList.remove('bg-blue-100', 'border-blue-300');
+            });
+
+            // Mark selected option
+            const selectedButton = [...buttons].find(button => button.textContent === selectedOption);
+            if (selectedButton) {
+                selectedButton.classList.add('bg-blue-100', 'border-blue-300');
+            }
+
+            // Store selection
+            selectedOptions[currentQuestionIndex] = selectedOption;
+        }
+        // Start timer for current question
+        function startTimer() {
+            clearInterval(timer);
+            timeLeft = 15;
+            updateTimerDisplay();
+
+            timer = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    timeUp();
+                }
+            }, 1000);
+        }
+        // Reset timer
+        function resetTimer() {
+            clearInterval(timer);
+            timeLeft = 15;
+            updateTimerDisplay();
+            startTimer();
+        }
+        // Update timer display
+        function updateTimerDisplay() {
+            timerElement.textContent = `${timeLeft}s`;
+
+            // Change color based on time left
+            if (timeLeft <= 5) {
+                timerElement.classList.remove('bg-blue-100', 'text-blue-800');
+                timerElement.classList.add('bg-red-100', 'text-red-800');
+            } else {
+                timerElement.classList.remove('bg-red-100', 'text-red-800');
+                timerElement.classList.add('bg-blue-100', 'text-blue-800');
+            }
+        }
+        // Handle when time is up
+        function timeUp() {
+            // Auto-select an option if none selected
+            if (selectedOptions[currentQuestionIndex] === null) {
+                const buttons = optionsElement.querySelectorAll('button');
+                if (buttons.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * buttons.length);
+                    selectOption(buttons[randomIndex].textContent);
+                }
+            }
+
+            // Move to next question or submit
+            if (currentQuestionIndex < shuffledQuestions.length - 1) {
+                nextQuestion();
+            } else {
+                submitQuiz();
+            }
+        }
+        // Show next question
+        function nextQuestion() {
+            if (currentQuestionIndex < shuffledQuestions.length - 1) {
+                currentQuestionIndex++;
+                showQuestion();
+            } else {
+                submitQuiz();
+            }
+        }
+        // Show previous question
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                showQuestion();
+            }
+        }
+        // Submit the quiz
+        function submitQuiz() {
+            clearInterval(timer);
+
+            // Calculate final score
+            score = 0;
+            shuffledQuestions.forEach((question, index) => {
+                if (selectedOptions[index] === question.answer) {
+                    score++;
+                }
+            });
+
+            // Update leaderboard
+            const username = usernameInput.value.trim() || 'Anonymous';
+            updateLeaderboard(username, score);
+
+            // Show results
+            showResults();
+        }
+        // Show quiz results
+        function showResults() {
+            quizContainer.classList.add('hidden');
+            resultsScreen.classList.remove('hidden');
+
+            // Update score display
+            scoreElement.textContent = score;
+            maxScoreElement.textContent = shuffledQuestions.length;
+
+            // Calculate and display percentage
+            const percentage = Math.round((score / shuffledQuestions.length) * 100);
+            scorePercentageElement.textContent = `${percentage}%`;
+
+            // Custom message based on score
+            let message = '';
+            let emoji = '';
+
+            if (percentage >= 90) {
+                message = "Outstanding! You're a quiz master!";
+                emoji = "🏆";
+                createConfetti();
+            } else if (percentage >= 75) {
+                message = "Excellent work! You know your stuff!";
+                emoji = "👍";
+            } else if (percentage >= 50) {
+                message = "Good effort! Keep learning!";
+                emoji = "📚";
+            } else {
+                message = "Keep practicing! You'll improve!";
+                emoji = "💪";
+            }
+
+            resultMessageElement.textContent = `${message} ${emoji}`;
+        }
+        // Update leaderboard
+        function updateLeaderboard(username, score) {
+            // Add new score
+            leaderboard.push({
+                username,
+                score,
+                maxScore: shuffledQuestions.length,
+                date: new Date().toISOString()
+            });
+
+            // Sort by score (descending)
+            leaderboard.sort((a, b) => (b.score / b.maxScore) - (a.score / a.maxScore));
+
+            // Keep only top 10 scores
+            leaderboard = leaderboard.slice(0, 10);
+
+            // Save to localStorage
+            localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
+
+            // Update leaderboard display
+            updateLeaderboardDisplay();
+        }
+        // Update leaderboard display
+        function updateLeaderboardDisplay() {
+            leaderboardElement.innerHTML = '';
+
+            if (leaderboard.length === 0) {
+                emptyLeaderboardElement.classList.remove('hidden');
+                return;
+            }
+
+            emptyLeaderboardElement.classList.add('hidden');
+
+            leaderboard.forEach((entry, index) => {
+                const entryElement = document.createElement('div');
+                entryElement.className = `flex items-center justify-between p-3 ${index < 3 ? 'bg-yellow-50' : 'bg-gray-100'} rounded-lg`;
+
+                entryElement.innerHTML = `
+                    <div class="flex items-center">
+                        <span class="font-bold ${index < 3 ? 'text-yellow-600' : 'text-gray-700'} mr-3">${index + 1}.</span>
+                        <span class="font-semibold">${entry.username}</span>
+                    </div>
+                    <span class="${index < 3 ? 'bg-yellow-100 text-yellow-800' : 'bg-blue-100 text-blue-800'} font-bold px-3 py-1 rounded-full">${entry.score}/${entry.maxScore}</span>
+                `;
+
+                leaderboardElement.appendChild(entryElement);
+            });
+        }
+        // Create confetti effect
+        function createConfetti() {
+            confettiContainer.innerHTML = '';
+
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+
+                // Random position
+                const left = Math.random() * 100;
+                confetti.style.left = `${left}%`;
+
+                // Random color
+                const colors = ['#f00', '#0f0', '#00f', '#ff0', '#f0f', '#0ff'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.backgroundColor = randomColor;
+
+                // Random size
+                const size = Math.random() * 10 + 5;
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+
+                // Random animation duration
+                const duration = Math.random() * 3 + 2;
+                confetti.style.animationDuration = `${duration}s`;
+
+                // Random delay
+                const delay = Math.random() * 2;
+                confetti.style.animationDelay = `${delay}s`;
+
+                confettiContainer.appendChild(confetti);
+            }
+        }
+        // Event Listeners
+        startButton.addEventListener('click', initQuiz);
+        nextButton.addEventListener('click', nextQuestion);
+        prevButton.addEventListener('click', prevQuestion);
+        retryButton.addEventListener('click', initQuiz);
+        leaderboardButton.addEventListener('click', () => {
+            resultsScreen.classList.add('hidden');
+            startScreen.classList.remove('hidden');
+        });
+        // Initialize leaderboard display
+        updateLeaderboardDisplay();
+
+        //nav display
+        function Showsidebar(){
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'flex'
+        }
+        function Hidesidebar(){
+            const sidebar = document.querySelector('.sidebar')
+                sidebar.style.display = 'none'
+            
+        } 
+    </script>
+
+</html>

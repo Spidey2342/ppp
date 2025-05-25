@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="shortcut icon" href="images/Happy_Earth_Cartoon_Illustration_Showing_Thumbs_Up_Planet_Clipart_Design__Earth_Clipart__Happy_Clipart__Cartoon_Clipart_PNG_Transparent_Image_and_Clipart_for_Free_Download-removebg-preview.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLANET PULSE</title>
+</head>
+
+<body>
+    <section class="hero">
+        
+         <header class="sidebar">
+            <div class="sidebar-image" onclick="Hidesidebar()"><img src="images/close.png" alt="" loading="lazy"></div>
+                        <nav>
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="product.html">PRODUCT</a></li>
+                </ul>
+            </nav>
+            <button onclick="window.location.href='join.html'" class="btn">JOIN US</button>
+        </header>
+        <header>
+            <div class="logo"><a href="index.html">PLANET PULSE</a></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="product.html">PRODUCT</a></li>
+                </ul>
+            </nav>
+            <button onclick="window.location.href='join.html'" class="btn main-nav">JOIN US</button>
+            <div class="header-image" onclick="Showsidebar()">
+                <img src="images/more.png" alt="" loading="lazy">
+            </div>
+        </header>
+        <div class="hero-1">
+            <div class="text">
+                <div class="text1">
+                    <h2>LEARN THE <span> CLIMATE</span>. LEAD THE <span>CHANGE</span></h2>
+                    <p>Join us learn climate change and save our world.</p>
+                </div>
+                <div class="button">
+                    <button class="btn1" onclick="window.location.href ='study.html'">LETS LEARN</button>
+                    <button class="btn2" onclick="window.location.href ='quiz.html'">LETS PLAY</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about" id="about">
+        <div class="about1">
+            <div class="about-text">
+                <h4>ABOUT US</h4>
+                <p>Planet-Pulse is an educational platform created in 2025 with one mission —
+                    to empower young people in Ghana to understand and take action
+                    against climate change. We believe learning about the planet
+                    shouldn’t be boring, so we’ve created easy-to-digest guides,
+                    visuals, and interactive tools just for teens. Our platform includes
+                    fun quizzes to test what you know and challenge what you think
+                    about the environment. We also feature a handpicked eco-product
+                    directory, helping you discover and even shop for items that
+                    are planet-friendly. From reusable bottles to zero-waste school
+                    supplies, our product section makes climate-smart choices simple.
+                    At Planet-Pulse, we make climate awareness relatable, fun, and
+                    action-ready for youth everywhere.</p>
+            </div>
+            <div class="about-image">
+                <img src="images/Happy_Earth_Cartoon_Illustration_Showing_Thumbs_Up_Planet_Clipart_Design__Earth_Clipart__Happy_Clipart__Cartoon_Clipart_PNG_Transparent_Image_and_Clipart_for_Free_Download-removebg-preview.png"
+                    alt="" loading="lazy">
+            </div>
+        </div>
+    </section>
+    <section class="product">
+        <h3>Shop Smart. Save the Planet.</h3>
+        <div class="products-items">
+            <div class="items one">
+                <img src="images/35beb3a4-7535-4de5-819d-5e8d45bdcb2c.jpeg" alt="" loading="lazy">
+                <div class="items-1">
+                    <p>Reusable Water Bottles</p>
+                    <div class="amount">
+                        <p>GHS 70.00</p>
+                        <button class="sales" onclick="window.location.href ='product.html'">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="items two">
+                <img src="images/Bamboo Toothbrush 5pcs  _ Sustainable Biodegradable Handle _ Soft Nylon Bristles _ Eco Travel Toothbrush _ Green Dental Care.jpeg" alt="" loading="lazy">
+                <div class="items-1">
+                    <p>Bamboo toothbrush</p>
+                    <div class="amount">
+                        <p>GHS 34.00</p>
+                        <button class="sales" onclick="window.location.href ='product.html'">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="items three">
+                <img src="images/PRICES MAY VARY_ DOUBLE-WIRE SPIRAL BINDING….jpeg" alt="" loading="lazy">
+                <div class="items-1">
+                    <p>Notebooks fron Recycled Paper</p>
+                    <div class="amount">
+                        <p>GHS 94.00</p>
+                        <button class="sales">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="more">VIEW MORE</button>
+    </section>
+    <footer>
+        <div class="footer">
+            <div class="link1">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>  
+                    <li><a href="study.html">LEARN</a></li>  
+                    <li><a href="quiz.html">QUIZ</a></li>  
+                    <li><a href="product.html">PRODUCTS</a></li>  
+
+
+                </ul>
+            </div>
+            <div class="link2">
+                DI BTECH PROJECT
+            </div>
+            <div class="link3">
+                <p>&copy 2025 Planet-Pulse. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function Showsidebar(){
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'flex'
+        }
+        function Hidesidebar(){
+            const sidebar = document.querySelector('.sidebar')
+                sidebar.style.display = 'none'
+            
+        } 
+    </script>
+</body>
+
+</html>

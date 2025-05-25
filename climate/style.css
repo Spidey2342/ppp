@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+:root{
+    --first-color:#2196F3;
+    --second-color:#FFF176;
+    --third-color:#9E8E00;
+    --fourth-color:#407CAC;
+    --fifth-color:#A5D6A7;
+    --sixth-color:#407CAC;
+    --answer-color1:#36FF62;
+    --answer-color2:#DFD263;
+    --answer-color3:#F64D4D;
+}
