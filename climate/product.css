@@ -259,4 +259,13 @@ img{
     }
 
 }
+@media screen and (max-width:720px){
+    .small-head{
+ 
+    h1{
+        font-size: 30px;
+       
+    }
+}
+}
 
