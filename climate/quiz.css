@@ -172,10 +172,6 @@ nav ul li a {
     .main-nav {
         display: none;
     }
-
-    .sidebar {
-        display: flex;
-    }
 }
 
 @media screen and (max-width:425px){
