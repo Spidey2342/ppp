@@ -291,9 +291,6 @@ footer {
         display: none;
     }
 
-    .sidebar {
-        display: flex;
-    }
 }
 
 @media screen and (max-width:799px) {
