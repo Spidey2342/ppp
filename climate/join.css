@@ -313,10 +313,6 @@ p {
     .main-nav {
         display: none;
     }
-
-    .sidebar {
-        display: flex;
-    }
     
      .footer {
         height: 30vh;
