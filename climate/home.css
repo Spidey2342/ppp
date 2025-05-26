@@ -361,9 +361,6 @@ footer{
     .main-nav{
         display: none;
     }
-    .sidebar{
-        display: flex;
-    }
 }
 @media screen and (max-width:799px) {
     .footer{
