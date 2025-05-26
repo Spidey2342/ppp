@@ -530,9 +530,6 @@ footer {
         display: none;
     }
 
-    .sidebar {
-        display: flex;
-    }
    
     .cause-text{
         width: 80%;
